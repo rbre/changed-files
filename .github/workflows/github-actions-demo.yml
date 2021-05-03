@@ -8,5 +8,5 @@ jobs:
         run: |
           URL="https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.number }}/files"
           echo "URL: $URL"
-          FILES=$(curl -s -X GET -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" $URL | jq -r '.[] | .filename')
+          FILES=$(curl -s -X GET -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" $URL | jq -r '.[] | .filename' | tr '\n' ' ')
           echo "$FILES"
