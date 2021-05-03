@@ -4,9 +4,7 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repository code
         uses: actions/checkout@v2
-      - name: Get all changed files
       - run: |
           URL="https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.number }}/files"
           echo "URL: $URL"
